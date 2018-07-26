@@ -1,3 +1,7 @@
+<<<<<<< HEAD
 Holiwi
 
 fripiwi
+=======
+Holiwi
+>>>>>>> bc0e473e20a5e6721a8fc42a88524e19606c653d
