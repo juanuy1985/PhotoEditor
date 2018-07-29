@@ -1,5 +1,5 @@
-import sys
-
+from UI.EditorApp import EditorApp
+'''
 from Images.Image import Image
 from Images.ReaderBMP import ReaderBMP
 
@@ -13,6 +13,7 @@ def main(argv):
 
     
     pass
+'''
 
 if __name__ == "__main__":
-    main(sys.argv)
+    EditorApp().run()

@@ -43,6 +43,18 @@ class ReaderBMP(Reader):
             else:
                 raise Exception('Exception: {0} - format file incorrect - {1}'.format(path, image.type))
             
-        return image
+        return self.__removeExtraBytes__(image)
         
-        pass
+    def __removeExtraBytes__(self, image):
+        tmp = bytearray(image.width * image.height * 3)
+        
+        for y in range(0, image.height):
+            for x in range(0, image.width):
+                indexCurrent = int(y * (image.width * 3 + image.extraBytes) + x * 3)
+                index = int(y * (image.width * 3 ) + x * 3)
+                tmp[index + 1] = image.dataImage[indexCurrent + 1]
+                tmp[index + 2] = image.dataImage[indexCurrent]
+                tmp[index] = image.dataImage[indexCurrent + 2]
+        
+        image.dataImage = tmp
+        return image
