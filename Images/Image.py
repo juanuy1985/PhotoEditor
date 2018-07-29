@@ -22,5 +22,6 @@ class Image:
         self.extraBytes = 0
         self.dataImage = None
 
+
     def getPixel(self, x, y):
         pass
