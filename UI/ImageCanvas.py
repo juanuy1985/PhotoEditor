@@ -12,7 +12,7 @@ class ImageCanvas(Widget):
         super(ImageCanvas, self).__init__(**args)
 
         reader = ReaderBMP()
-        image = reader.load("D:\Maestría\CG\Juan\Pruebas\DragonBall.bmp")
+        image = reader.load("D:\Maestria\CG\Juan\Pruebas\DragonBall.bmp")
 
         width = image.width
         height = image.height
