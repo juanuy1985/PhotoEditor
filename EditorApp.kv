@@ -10,11 +10,15 @@
             Button:
                 text: 'Median'
                 on_release: sm.current = 'screen_median'  
+            Button:
+                text: 'Histogram'
+                on_release: sm.current = 'screen_histogram'  
 
         ScreenManager:
             id: sm
             ScreenWavelet:
             ScreenMedian:
+            ScreenHistograma:
 
 <ScreenWavelet>:
     name: 'screen_wavelet'      
@@ -54,3 +58,20 @@
             text: 'Obtener Filtro de Mediana'
         ImageCanvasMedian:
             id: imageMedian
+
+<ScreenHistograma>:
+    name: 'screen_histogram'
+    BoxLayout:
+        orientation: "vertical"
+        TextInput:
+            id: path
+            height: '30dp'
+            size_hint: 1, None
+            multiline: False
+        Button:
+            on_release: root.ids.imageHistograma.fileName = root.ids.path.text
+            height: '30dp'
+            size_hint: 1, None
+            text: 'Obtener Histograma'
+        ImageCanvasHistograma:
+            id: imageHistograma
