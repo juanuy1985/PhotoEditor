@@ -1,0 +1,56 @@
+<Display>:
+    BoxLayout:
+        orientation: "vertical"
+        BoxLayout:
+            size_hint: 1, None
+            height: '48dp'
+            Button:
+                text: 'Wavelet'
+                on_release: sm.current = 'screen_wavelet'  
+            Button:
+                text: 'Median'
+                on_release: sm.current = 'screen_median'  
+
+        ScreenManager:
+            id: sm
+            ScreenWavelet:
+            ScreenMedian:
+
+<ScreenWavelet>:
+    name: 'screen_wavelet'      
+    BoxLayout:
+        orientation: "vertical"
+        TextInput:
+            id: path
+            height: '30dp'
+            size_hint: 1, None
+            multiline: False
+        TextInput:
+            id: scales
+            height: '30dp'
+            size_hint: 0.2, None
+            multiline: False
+            text: '1'
+        Button:
+            on_release: root.ids.imageWavelet.fileName, root.ids.imageWavelet.scales = root.ids.path.text, root.ids.scales.text
+            height: '30dp'
+            size_hint: 1, None
+            text: 'Obtener Transformada Wavelet'
+        ImageCanvasWavelet:
+            id: imageWavelet
+<ScreenMedian>:
+    name: 'screen_median'      
+    BoxLayout:
+        orientation: "vertical"
+        TextInput:
+            id: path
+            height: '30dp'
+            size_hint: 1, None
+            multiline: False
+        Button:
+            on_release: root.ids.imageMedian.fileName = root.ids.path.text
+            height: '30dp'
+            size_hint: 1, None
+            text: 'Obtener Filtro de Mediana'
+        ImageCanvasMedian:
+            id: imageMedian
