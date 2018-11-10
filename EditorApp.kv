@@ -13,13 +13,27 @@
             Button:
                 text: 'Histogram'
                 on_release: sm.current = 'screen_histogram'  
-
+            Button:
+                text: 'Profiled'
+                on_release: sm.current = 'screen_perfilado'
+            Button:
+                text: 'Smooth'
+                on_release: sm.current = 'screen_smooth'
+            Button:
+                text: 'Projection'
+                on_release: sm.current = 'screen_projection'
+            Button:
+                text: 'Bilineal'
+                on_release: sm.current = 'screen_bilineal'
         ScreenManager:
             id: sm
             ScreenWavelet:
             ScreenMedian:
             ScreenHistograma:
-
+            ScreenPerfilado:
+            ScreenSmooth:
+            ScreenProjection:
+            ScreenBilineal:
 <ScreenWavelet>:
     name: 'screen_wavelet'      
     BoxLayout:
@@ -75,3 +89,71 @@
             text: 'Obtener Histograma'
         ImageCanvasHistograma:
             id: imageHistograma
+
+<ScreenPerfilado>:
+    name: 'screen_perfilado'      
+    BoxLayout:
+        orientation: "vertical"
+        TextInput:
+            id: path
+            height: '30dp'
+            size_hint: 1, None
+            multiline: False
+        Button:
+            on_release: root.ids.imagePerfilado.fileName = root.ids.path.text
+            height: '30dp'
+            size_hint: 1, None
+            text: 'Obtener Perfilado de la imagen'
+        ImageCanvasPerfilado:
+            id: imagePerfilado
+
+<ScreenSmooth>:
+    name: 'screen_smooth'      
+    BoxLayout:
+        orientation: "vertical"
+        TextInput:
+            id: path
+            height: '30dp'
+            size_hint: 1, None
+            multiline: False
+        Button:
+            on_release: root.ids.imageSmooth.fileName = root.ids.path.text
+            height: '30dp'
+            size_hint: 1, None
+            text: 'Obtener Suavizado de la imagen'
+        ImageCanvasSmooth:
+            id: imageSmooth
+
+<ScreenProjection>:
+    name: 'screen_projection'      
+    BoxLayout:
+        orientation: "vertical"
+        TextInput:
+            id: path
+            height: '30dp'
+            size_hint: 1, None
+            multiline: False
+        Button:
+            on_release: root.ids.imageProjection.fileName = root.ids.path.text
+            height: '30dp'
+            size_hint: 1, None
+            text: 'Obtener Imagen Proyectada'
+        ImageCanvasProjection:
+            id: imageProjection
+            
+<ScreenBilineal>:
+    name: 'screen_bilineal'      
+    BoxLayout:
+        orientation: "vertical"
+        TextInput:
+            id: path
+            height: '30dp'
+            size_hint: 1, None
+            multiline: False
+        Button:
+            on_release: root.ids.imageBilineal.fileName = root.ids.path.text
+            height: '30dp'
+            size_hint: 1, None
+            text: 'Obtener Imagen Interpolacion Bilineal'
+        ImageCanvasBilineal:
+            id: imageBilineal
